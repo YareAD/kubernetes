@@ -1,0 +1,29 @@
+type Alumno {
+  _id: ID!
+  no_control: String!
+  nombre: String!
+  apellido_paterno: String!
+  apellido_materno: String!
+  edad: String!
+  genero: String!
+}
+
+type Query {
+  getAlumnos: [Alumno]
+  findAlumno(id: ID!): Alumno
+}
+
+input AlumnoCreateOrUppdate {
+  no_control: String
+  nombre: String
+  apellido_paterno: String
+  apellido_materno: String
+  edad: String
+  genero: String
+}
+
+type Mutation {
+  createAlumno(data: AlumnoCreateOrUppdate!): Alumno
+  updateAlumno(id: ID!, data: AlumnoCreateOrUppdate!): Alumno
+  deleteAlumno(id: ID!): Boolean!
+}
